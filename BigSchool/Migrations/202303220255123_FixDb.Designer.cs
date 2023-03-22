@@ -7,13 +7,13 @@ namespace BigSchool.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class AddnameColumnToApplicationUser : IMigrationMetadata
+    public sealed partial class FixDb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddnameColumnToApplicationUser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FixDb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202303150240013_AddnameColumnToApplicationUser"; }
+            get { return "202303220255123_FixDb"; }
         }
         
         string IMigrationMetadata.Source
