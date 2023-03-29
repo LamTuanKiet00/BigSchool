@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using BigSchool.ViewModels;
+
 namespace BigSchool.Controllers
 {
     public class HomeController : Controller
@@ -17,11 +19,17 @@ namespace BigSchool.Controllers
         }
         public ActionResult Index()
         {
-            var upcommingCourse = _dbContet.Courses
+            var upcommingCourses = _dbContet.Courses
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);
-            return View(upcommingCourse);
+            var viewModel = new CoursesViewModel
+            {
+                UpcommingCourses = upcommingCourses,
+                ShowAction = User.Identity.IsAuthenticated,
+
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()
